@@ -37,6 +37,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    
+    'mptt',
+    'callboard.apps.CallboardConfig',
+    'gellery.apps.GelleryConfig',
 ]
 
 MIDDLEWARE = [
