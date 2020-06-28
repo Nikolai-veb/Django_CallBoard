@@ -41,6 +41,7 @@ class DateAdvert(models.Model):
     class Meta:
         verbose_name = 'Срок'
         verbose_name_plural = 'Сроки'
+        ordering = ["-id"]
 
 
 class Advert(models.Model):
