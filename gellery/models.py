@@ -1,6 +1,7 @@
 from django.db import models
 
 class Photo(models.Model):
+
     """Фотографии"""
     name = models.CharField("Имя", max_length=50, unique=True)
     image = models.ImageField("Фотографии", upload_to='gellery_photo/')
