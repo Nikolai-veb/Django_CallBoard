@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+        {% for advert in advert_list %}
+
+                <h2>{{ advert.subject }}</h2>
+                <p>{{ advert.price }}</p>
+                <p>{{ advert.cteated }}</p>
+                <hr>
+                
+         {% endfor %}
+{% endblock content %}
