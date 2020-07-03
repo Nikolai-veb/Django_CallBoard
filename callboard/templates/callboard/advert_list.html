@@ -3,8 +3,9 @@
 {% block content %}
         {% for advert in advert_list %}
 
-                <h2>{{ advert.subject }}</h2>
-                <p>{{ advert.price }}</p>
+            <h2> <a href="{{ advert.get_absolute_url }}">{{ advert.subject }}</a></h2>
+            <p>{{ advert.price }}</p>
+            <p>{{ advert.filtres }}</p>
                 <p>{{ advert.cteated }}</p>
                 <hr>
                 

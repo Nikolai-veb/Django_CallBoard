@@ -9,7 +9,7 @@ class AdvertListView(ListView):
     queryset = Advert.objects.all()
 
 
-class AdvertDetailView9(DetailView):
+class AdvertDetailView(DetailView):
     """Подробно об обьявлениях"""
     model = Advert
     context_object_name = "advert"
