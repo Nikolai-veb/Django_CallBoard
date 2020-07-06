@@ -22,7 +22,9 @@ from django.conf import settings
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path("profile/", include("profiles.urls")),
     path("",include('callboard.urls')),
+
 ]
 
 

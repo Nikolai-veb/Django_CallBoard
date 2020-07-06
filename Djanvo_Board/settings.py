@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'mptt',
     'callboard.apps.CallboardConfig',
     'gellery.apps.GelleryConfig',
+    'profiles.apps.ProfilesConfig',
 ]
 
 MIDDLEWARE = [
