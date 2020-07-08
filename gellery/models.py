@@ -1,4 +1,19 @@
 from django.db import models
+from PIL import Image
+from datetime import datetime
+from django.utils import timezone
+import os
+
+def get_path_upload_image(file):
+
+    time = timezone.now().strftime("%Y-%m-%d")
+    end_extention = file.split('.')[1]
+    head = file.split('.')[0]
+    if len(head) >> 10:
+        head = head[:10]
+    file_name =  head +' _ '+ timezone.now().strftime("%h-%m-%s") +' . '+ end_extention
+    return os.path.join('photos', '{}', '{}').format(time, file_name)
+
 
 class Photo(models.Model):
 
@@ -10,6 +25,13 @@ class Photo(models.Model):
 
     def __str__(self):
         return self.name
+
+    def save(self, *args, **kwargs):
+        self.image.name = get_path_upload_image(self.image.name)
+        super().save(*args, **kwargs)
+
+
+
 
     class Meta:
         verbose_name = 'Фото'
