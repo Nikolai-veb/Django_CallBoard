@@ -1,16 +1,17 @@
-from django.shortcuts import render
+from .serializers import AdvertSer.
 from .models import Advert, Category
-from django.views.generic import ListView, DetailView, View
+from rest_framework import generics
+from rest_framework import permissions
 
-
-class AdvertListView(ListView):
+class AdvertListView(generics.ListAPIView):
     """Обьявления"""
-    model = Advert
+
+    permission_classes = [permissions.AllowAny]
     queryset = Advert.objects.all()
+    serializers_classes = AdvertSer
 
-
-class AdvertDetailView(DetailView):
-    """Подробно об обьявлениях"""
-    model = Advert
-    context_object_name = "advert"
+#class AdvertDetailView(DetailView):
+  #  """Подробно об обьявлениях"""
+   # model = Advert
+    #context_object_name = "advert"
 

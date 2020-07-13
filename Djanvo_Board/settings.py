@@ -131,3 +131,30 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 
 
+
+
+
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': (
+                'rest_framework.permissions.IsAdminUser',
+                'rest_framework.permissions.AllowAny',
+
+    ),
+        'PAGE_SIZE': 10,
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+                'rest_framework.authentication.TokenAuthentication',
+                'rest_framework.authentication.BasicAuthentication',
+
+    ),
+        'DEFAULT_PAGINATION_CLASS':
+            'rest_framework_json_api.pagination.PageNumberPagination',
+
+}
+
+
+CORS_ORIGIN_ALLOW_ALL = True
+
+EMAIL_BACKEND = 'django.core.mail.backends.dummy.EmailBackend'
+
+
+
