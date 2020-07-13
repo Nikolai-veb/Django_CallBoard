@@ -6,6 +6,6 @@ from .models import Profile
 class ProfileAdmin(admin.ModelAdmin):
     list_display = ("user", "first_name", "last_name", "email_two", "avatar")
     prepopulated_fields = {"slug":("first_name",)}
-
+    search_fields = ("first_name", "last_name", "email_two")
 
 

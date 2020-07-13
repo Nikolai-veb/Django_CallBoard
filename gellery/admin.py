@@ -8,6 +8,7 @@ class Gellery(admin.ModelAdmin):
     list_display = ("id", "name", "created")
     list_display_links = ("name",)
     prepopulated_fields = {"slug":("name",)}
+    search_fields = ("name", )
 
 
 @admin.register(Photo)
@@ -16,3 +17,4 @@ class Photo(admin.ModelAdmin):
     list_display = ("id", "name", "created")
     list_display_links = ("name",)
     prepopulated_fields = {"slug":("name",)}
+    search_fields = ("name", )
