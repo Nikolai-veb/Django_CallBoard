@@ -38,13 +38,13 @@ class AdvertAdmin(admin.ModelAdmin):
             "category",
             "filtres",
             "date",
-            "discription",
-            "prise",
+            "description",
+            "price",
             "moderation",
             "files",
             "created",
             )
     list_display_links = ("subject",)
-    list_filter = ("category", "filtres", "date", "prise")
+    list_filter = ("category", "filtres", "date", "price")
     prepopulated_fields = {"slug":("subject",)}
     search_fields = ("category", "subject")

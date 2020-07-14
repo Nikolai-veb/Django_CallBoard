@@ -1,4 +1,4 @@
-from .serializers import AdvertSer.
+from .serializers import AdvertListSer, AdvertDetailSer
 from .models import Advert, Category
 from rest_framework import generics
 from rest_framework import permissions
@@ -8,10 +8,12 @@ class AdvertListView(generics.ListAPIView):
 
     permission_classes = [permissions.AllowAny]
     queryset = Advert.objects.all()
-    serializers_classes = AdvertSer
+    serializer_class = AdvertListSer
 
-#class AdvertDetailView(DetailView):
-  #  """Подробно об обьявлениях"""
-   # model = Advert
-    #context_object_name = "advert"
+class AdvertDetailView(generics.RetrieveAPIView):
+    """Подробно об обьявлениях"""
 
+    permission_classes = [permissions.AllowAny]
+    serializer_class = AdvertDetailSer
+    queryset = Advert.objects.all()
+    lookup_field = "slug"

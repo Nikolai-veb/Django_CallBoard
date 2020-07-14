@@ -52,7 +52,7 @@ class Advert(models.Model):
     filtres = models.ForeignKey(FilterAdvert, verbose_name="Фильтры", on_delete=models.CASCADE)
     date = models.ForeignKey(DateAdvert, verbose_name="Сроки", on_delete=models.CASCADE)
     subject = models.CharField("Тема", max_length=200)
-    discription = models.TextField("Объявление")
+    description = models.TextField("Объявление")
     images = models.ForeignKey(
             'gellery.Gellery',
             verbose_name="Фотографии",
@@ -61,7 +61,7 @@ class Advert(models.Model):
             null=True
             )
     files = models.FileField("Фаил", upload_to='callboard_file/', blank=True, null=True)
-    prise = models.DecimalField("Цена", max_digits=8, decimal_places=2)
+    price = models.DecimalField("Цена", max_digits=8, decimal_places=2)
     created = models.DateTimeField("Дата создания", auto_now_add=True)
     moderation = models.BooleanField("Модерацыя", default=False)
     slug = models.SlugField("url", max_length=50, unique=True)
