@@ -1,11 +1,22 @@
 from django.shortcuts import render
 
 from .models import Profile
-from django.views.generic import ListView, DetailView
+from rest_framework import generics, permissions
+from .serializers import ProfileSer, ProfileUpdateSer
 
-
-class ProfileDetail(DetailView):
+class ProfileDetail(generics.RetrieveAPIView):
     """Профиль пользователя"""
-    model = Profile
-    context_objeckt_name = 'profile'
-    template_name = "profile/profile_detail.html"
+
+    permission_classes = [permissions.IsAuthenticated]
+    queryset = Profile.objects.all()
+    serializers_class = ProfileSer
+
+
+
+
+class ProfileUpdateView(generics.UpdateAPIView):
+    """Для бновления профиля пользователя"""
+
+    permission_classes = [permissions.IsAuthenticated]
+    queryset = Profile.objects.all()
+    serializers_class = ProfileUpdateSer
