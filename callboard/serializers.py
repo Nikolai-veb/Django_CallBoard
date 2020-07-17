@@ -26,7 +26,7 @@ class AdvertListSer(serializers.ModelSerializer):
     images = GellerySer()
     class Meta:
         model = Advert
-        fields = ("category", "filtres", "subject", "images", "price", "created", "slug")
+        fields = ("id", "category", "filtres", "subject", "images", "price", "created", "slug")
 
 
 
@@ -50,3 +50,56 @@ class AdvertDetailSer(serializers.ModelSerializer):
             "created",
             "user",
         )
+
+
+
+
+
+class AdvertCreateSer(serializers.ModelSerializer):
+    """Для добавления обЪявления"""
+
+    class Meta:
+        model = Advert
+        fields = (
+            "category",
+            "filtres",
+            "subject",
+            "description",
+            "date",
+            #"files",
+            #"images",
+            "price",
+            #"created",
+            #"user",
+        )
+
+
+        def create(self, request):
+            request['user'] = self.context['request'].user
+            advert = Advert.objects.create(**request)
+            return advert
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

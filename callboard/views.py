@@ -1,4 +1,4 @@
-from .serializers import AdvertListSer, AdvertDetailSer
+from .serializers import AdvertListSer, AdvertDetailSer, AdvertCreateSer
 from .models import Advert, Category
 from rest_framework import generics
 from rest_framework import permissions
@@ -17,3 +17,14 @@ class AdvertDetailView(generics.RetrieveAPIView):
     serializer_class = AdvertDetailSer
     queryset = Advert.objects.all()
     lookup_field = "slug"
+
+
+class AdvertCreateView(generics.CreateAPIView):
+    """Добавление обЪявления"""
+
+    permission_classes = [permissions.IsAuthenticated]
+    queryset = Advert.objects.all()
+    serializer_class = AdvertCreateSer
+
+
+
