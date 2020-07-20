@@ -75,7 +75,7 @@ class AdvertCreateSer(serializers.ModelSerializer):
 
 
         def create(self, request):
-            request['user'] = self.context['request'].user
+            request["user"] = self.context['request'].user
             advert = Advert.objects.create(**request)
             return advert
 
